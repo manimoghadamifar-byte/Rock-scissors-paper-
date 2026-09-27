@@ -1,0 +1,32 @@
+import random
+
+def play():
+    options = ["سنگ", "کاغذ", "قیچی"]
+    
+    while True:
+        user_choice = input("یکی رو انتخاب کن (سنگ / کاغذ / قیچی) یا 'خروج' برای تمام کردن: ")
+        
+        if user_choice == "خروج":
+            print("بازی تمام شد. مرسی که بازی کردی! 👋")
+            break
+        
+        if user_choice not in options:
+            print("ورودی نامعتبره! دوباره امتحان کن.")
+            continue
+        
+        bot_choice = random.choice(options)
+        print(f"انتخاب تو: {user_choice}")
+        print(f"انتخاب بات: {bot_choice}")
+        
+        if user_choice == bot_choice:
+            print("مساوی شد! 😐")
+        elif (user_choice == "سنگ" and bot_choice == "قیچی") or \
+             (user_choice == "کاغذ" and bot_choice == "سنگ") or \
+             (user_choice == "قیچی" and bot_choice == "کاغذ"):
+            print("تو بردی! 🎉")
+        else:
+            print("بات برد! 🤖")
+        print("-" * 30)
+
+if __name__ == "__main__":
+    play()
